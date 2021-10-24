@@ -1,0 +1,2 @@
+# typescript-algorithm
+some  algorithm.
