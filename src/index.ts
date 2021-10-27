@@ -2,11 +2,14 @@ import { binary_search, binary_search_recursion } from './search/binary_search';
 import { produceNumberArray } from './common/produce';
 import choose_sort from './sort/choose_sort';
 import { sum, count, max, max_grid_field } from './practice/recursion';
-import quick_sort from './search/quick_sort';
+import quick_sort from './sort/quick_sort';
 import { find_prime } from './practice/quest';
 import graphic from './graphic/graphic';
 import { breadth_first_search } from './graphic/breadth_first_search';
 import dijkstra from './graphic/dijkstra_algorithm';
+import bellman_ford_algorithm from './graphic/bellman_ford_algorithm';
+import { radio_cover_problem, traveller_problem } from './practice/greedy_algorithm';
+import { bag_problem } from './dynamic_plan/dynamic_plan';
 
 const bodyFunc = () => {
     let arr = produceNumberArray(10, 1, 50, 0);
@@ -71,13 +74,21 @@ const bodyFunc = () => {
 
     let g3 = new graphic();
 
-    g3.appendPath('START', 'A', 10);
-    g3.appendPath('A', 'B', 20);
-    g3.appendPath('B', 'C', 1);
-    g3.appendPath('C', 'A', 1);
-    g3.appendPath('B', 'END', 30);
+    g3.appendPath('START', 'A', 5);
+    g3.appendPath('START', 'B', 0);
+    g3.appendPath('A', 'C', 15);
+    g3.appendPath('A', 'D', 20);
+    g3.appendPath('A', 'B', -16);
+    g3.appendPath('B', 'C', 30);
+    g3.appendPath('B', 'D', 35);
+    g3.appendPath('C', 'END', 20);
+    g3.appendPath('D', 'END', 10);
 
-    console.log(dijkstra(g3, 'START', 'END').join('->'));
+    console.log(bellman_ford_algorithm(g3, 'START', 'END').join('->'));
+
+    console.log();
+
+    bag_problem();
 };
 
 console.log('Begin...');

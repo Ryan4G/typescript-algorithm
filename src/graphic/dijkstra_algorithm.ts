@@ -1,6 +1,7 @@
 import graphic from "./graphic";
 import IMap from "../common/interface/IMap";
 
+// only positive weight
 const dijkstra = (g: graphic, srcNode: string, desNode: string) : Array<string> => {
     let arr : Array<string> = [];
 
